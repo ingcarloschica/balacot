@@ -6,6 +6,11 @@
         {{ session('status') }}
     </div>
 @endif
+<div class="d-flex justify-content-end">
+  <a href="{{route('post.create')}}" class="btn btn-primary"> + Nuevo</a>
+  
+</div>
+<hr>
 <table class="table table-striped">
     <thead>
       <tr>

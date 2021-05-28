@@ -48,4 +48,21 @@ class CrudController extends Controller
 
     }
 
+    public function create(){
+        return view('create');
+    }
+
+    public function store(Request $request){
+        $response = http::withHeaders([
+            'Content-type' =>  'application/json; charset=UTF-8'
+        ])
+        ->post('https://jsonplaceholder.typicode.com/posts',[
+            'title'   => $request['titulo'],
+            'body'    => $request['texto'],
+            'userId'  => 1,
+        ]);
+
+        return redirect()->route('post.index')->with('status','Registro Creado');
+    }
+
 }
